@@ -4,7 +4,7 @@ import successmessage from "../utils/successmsg";
 import errormessage from "../utils/errormsg";
 import bcrypt from "bcrypt";
 
-class controller {
+class Usercontroller {
   public static async getUsers(req: Request, res: Response): Promise<void> {
     try {
       const users = await User.find();
@@ -82,6 +82,7 @@ class controller {
     }
   }
 }
+export default Usercontroller;
 
-export default controller;
+
 

@@ -7,7 +7,7 @@ const user_1 = require("../models/user");
 const successmsg_1 = __importDefault(require("../utils/successmsg"));
 const errormsg_1 = __importDefault(require("../utils/errormsg"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
-class controller {
+class Usercontroller {
     static async getUsers(req, res) {
         try {
             const users = await user_1.User.find();
@@ -84,4 +84,4 @@ class controller {
         }
     }
 }
-exports.default = controller;
+exports.default = Usercontroller;
