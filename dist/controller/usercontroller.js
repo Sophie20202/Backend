@@ -7,6 +7,8 @@ const user_1 = require("../models/user");
 const successmsg_1 = __importDefault(require("../utils/successmsg"));
 const errormsg_1 = __importDefault(require("../utils/errormsg"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const token_1 = __importDefault(require("../utils/token"));
 class Usercontroller {
     static async getUsers(req, res) {
         try {
@@ -81,6 +83,34 @@ class Usercontroller {
         }
         catch (error) {
             return (0, errormsg_1.default)(res, 500, error.message);
+        }
+    }
+    static async login(req, res) {
+        const { email, password } = req.body;
+        const secretKey = process.env.SECRET_KEY;
+        try {
+            if (!secretKey) {
+                return (0, errormsg_1.default)(res, 500, `Secret key is not defined`);
+            }
+            const user = await user_1.User.findOne({ email });
+            if (!user) {
+                return (0, errormsg_1.default)(res, 401, `Invalid email or password`);
+            }
+            const comparePassword = bcrypt_1.default.compareSync(password, user.password);
+            if (!comparePassword) {
+                return (0, errormsg_1.default)(res, 401, `Invalid email or password`);
+            }
+            const token = jsonwebtoken_1.default.sign({ user: user }, secretKey, { expiresIn: '1d' });
+            if (token) {
+                return (0, token_1.default)(res, 200, `User login successful`, user, token);
+            }
+            else {
+                return (0, errormsg_1.default)(res, 500, `Failed to generate token`);
+            }
+        }
+        catch (error) {
+            console.error("Error during login:", error);
+            return (0, errormsg_1.default)(res, 500, `Internal server error`);
         }
     }
 }

@@ -1,23 +1,22 @@
-import express from "express";
+import express, { Application } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import router from "./router/index";
+import routes from "./router/index";
 
-const app = express();
+const app: Application = express();
 dotenv.config();
 
 // Middleware
 app.use(bodyParser.json());
-app.use("/greet/v1", router);
-
+app.use("/greet/v1", routes);
 
 // Environment variables
-const port: string | number = process.env.PORT || 3000;
+const port: number | string = process.env.PORT || 3000;
 const database: string = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
 
 // Server start
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server running on ${port}`);
 });
 
@@ -26,10 +25,8 @@ mongoose.connect(database)
     .then(() => {
         console.log(`Database connected successfully`);
     })
-    .catch((error) =>{
+    .catch((error) => {
         console.log(error);
-    });
+});
 
 export default app;
-
-

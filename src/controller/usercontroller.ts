@@ -3,6 +3,9 @@ import { User } from "../models/user";
 import successmessage from "../utils/successmsg";
 import errormessage from "../utils/errormsg";
 import bcrypt from "bcrypt";
+import  jwt  from "jsonwebtoken";
+import tokenmessage from "../utils/token";
+import { getMaxListeners } from "events";
 
 class Usercontroller {
   public static async getUsers(req: Request, res: Response): Promise<void> {
@@ -81,6 +84,35 @@ class Usercontroller {
       return errormessage(res, 500, (error as Error).message);
     }
   }
+  public static async login(req: Request, res: Response): Promise<void> {
+    const { email, password } = req.body;
+    const secretKey = process.env.SECRET_KEY;
+    try {
+        if (!secretKey) {
+            return errormessage(res, 500, `Secret key is not defined`);
+        }
+        const user = await User.findOne({ email });
+        if (!user) {
+            return errormessage(res, 401, `Invalid email or password`);
+        }
+        const comparePassword = bcrypt.compareSync(password, user.password);
+        if (!comparePassword) {
+            return errormessage(res, 401, `Invalid email or password`);
+        }
+        const token = jwt.sign({ user: user }, secretKey, { expiresIn: '1d' });
+        if (token) {
+            return tokenmessage(res, 200, `User login successful`, user, token);
+        } else {
+            return errormessage(res, 500, `Failed to generate token`);
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        return errormessage(res, 500, `Internal server error`);
+    }
+
+
+  }
+
 }
 export default Usercontroller;
 
