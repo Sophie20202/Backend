@@ -41,8 +41,8 @@ class Usercontroller {
     static async createUser(req, res) {
         try {
             const hashpassword = bcrypt_1.default.hashSync(req.body.password, 10);
-            req.body.password = hashpassword;
-            const user = new user_1.User(req.body);
+            const { firstname, lastname, email, password, role } = req.body;
+            const user = new user_1.User({ firstname, lastname, email, password: hashpassword, role });
             await user.save();
             if (user) {
                 return (0, successmsg_1.default)(res, 200, "User created successfully!!", user);
@@ -85,9 +85,23 @@ class Usercontroller {
             return (0, errormsg_1.default)(res, 500, error.message);
         }
     }
+    static async deleteUsers(req, res) {
+        try {
+            const users = await user_1.User.deleteMany();
+            if (users) {
+                return (0, successmsg_1.default)(res, 200, ` All Users deleted successfully!!`, null);
+            }
+            else {
+                return (0, errormsg_1.default)(res, 404, "No users deleted");
+            }
+        }
+        catch (error) {
+            return (0, errormsg_1.default)(res, 500, error.message);
+        }
+    }
     static async login(req, res) {
         const { email, password } = req.body;
-        const secretKey = process.env.SECRET_KEY;
+        const secretKey = "Sophie";
         try {
             if (!secretKey) {
                 return (0, errormsg_1.default)(res, 500, `Secret key is not defined`);
@@ -102,7 +116,7 @@ class Usercontroller {
             }
             const token = jsonwebtoken_1.default.sign({ user: user }, secretKey, { expiresIn: '1d' });
             if (token) {
-                return (0, token_1.default)(res, 200, `User login successful`, user, token);
+                return (0, token_1.default)(res, 200, `User login successful`, token);
             }
             else {
                 return (0, errormsg_1.default)(res, 500, `Failed to generate token`);

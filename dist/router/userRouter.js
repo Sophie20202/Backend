@@ -13,4 +13,5 @@ router.post("/", datachecker_1.dataChecker.inputIsEmpty, datachecker_1.dataCheck
 router.put("/:id", usercontroller_1.default.updateUser);
 router.delete("/:id", usercontroller_1.default.deleteUser);
 router.post("/login", usercontroller_1.default.login);
+router.delete("/", usercontroller_1.default.deleteUsers);
 exports.default = router;

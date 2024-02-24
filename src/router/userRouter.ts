@@ -10,5 +10,6 @@ router.post("/",dataChecker.inputIsEmpty,dataChecker.EmailExist, controller.crea
 router.put("/:id", controller.updateUser);
 router.delete("/:id", controller.deleteUser);
 router.post("/login",controller.login);
+router.delete("/", controller.deleteUsers);
 export default router;
 
