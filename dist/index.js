@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 const database = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
 // Server start
 app.listen(port, () => {
-    console.log(`Server running on ${port}`);
+    console.log(`Server is running on ${port}`);
 });
 // Database connection
 mongoose_1.default.connect(database)

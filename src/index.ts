@@ -18,7 +18,7 @@ const database: string = process.env.DATABASE || "mongodb://localhost:27017/myda
 
 // Server start
 app.listen(port,()=>{
-    console.log(`Server running on ${port}`);
+    console.log(`Server is running on ${port}`);
 });
 
 // Database connection
