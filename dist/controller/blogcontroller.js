@@ -37,9 +37,10 @@ class blogcontroller {
     }
     static async createblog(req, res) {
         try {
-            const blogs = new Blog_1.Blog(req.body);
+            const { title, message } = req.body;
+            const picture = req.file?.path;
+            const blogs = new Blog_1.Blog({ title, message, picture });
             await blogs.save();
-            // const blogs=await Blog.create(req.body)
             if (blogs) {
                 return (0, successmsg_1.default)(res, 200, "Blog created successfully!!", blogs);
             }

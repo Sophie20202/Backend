@@ -38,10 +38,10 @@ class blogcontroller{
 
   public static async createblog(req: Request, res: Response): Promise<void> {
     try {
-
-      const blogs = new Blog(req.body);
+const { title,message}=req.body
+const picture=req.file?.path
+      const blogs = new Blog({title,message,picture});
       await blogs.save();
-      // const blogs=await Blog.create(req.body)
 
       if (blogs) {
         return successmessage(res, 200, "Blog created successfully!!", blogs);

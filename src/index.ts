@@ -17,7 +17,7 @@ const port: string | number = process.env.PORT || 3000;
 const database: string = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
 
 // Server start
-app.listen(port, ()=>{
+app.listen(port,()=>{
     console.log(`Server running on ${port}`);
 });
 
