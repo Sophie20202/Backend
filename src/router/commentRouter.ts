@@ -8,6 +8,7 @@ commentRouter.post("/:blogId",VerifyAcess("user"),commentcontroller.createcommen
 commentRouter.get("/",VerifyAcess("admin"),commentcontroller.getcomments)// router.get("/",commentcontroller.getcomment)
 commentRouter.get("/:id",VerifyAcess("admin"),commentcontroller.getcomment)
 commentRouter.delete("/:id",VerifyAcess("admin"),commentcontroller.deletecomment)
+commentRouter.patch("/:id",VerifyAcess("user"),commentcontroller.updatecomment)
 
 
 export default commentRouter

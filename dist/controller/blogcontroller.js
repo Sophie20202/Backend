@@ -11,10 +11,10 @@ class blogcontroller {
         try {
             const blog = await Blog_1.Blog.find();
             if (blog) {
-                return (0, successmsg_1.default)(res, 200, ` ${blog.length} Users founded successfully!!`, blog);
+                return (0, successmsg_1.default)(res, 200, ` ${blog.length} blogs founded successfully!!`, blog);
             }
             else {
-                return (0, errormsg_1.default)(res, 404, "No users found");
+                return (0, errormsg_1.default)(res, 404, "No blogs found");
             }
         }
         catch (error) {
@@ -25,10 +25,10 @@ class blogcontroller {
         try {
             const blogs = await Blog_1.Blog.findById(req.params.id);
             if (!blogs) {
-                return (0, errormsg_1.default)(res, 404, "User not found");
+                return (0, errormsg_1.default)(res, 404, "blog not found");
             }
             else {
-                return (0, successmsg_1.default)(res, 200, "User found successfully", blogs);
+                return (0, successmsg_1.default)(res, 200, "bolgs found successfully", blogs);
             }
         }
         catch (error) {

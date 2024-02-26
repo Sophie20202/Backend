@@ -11,4 +11,5 @@ commentRouter.post("/:blogId", (0, verifyAcess_1.default)("user"), commentcontro
 commentRouter.get("/", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.getcomments); // router.get("/",commentcontroller.getcomment)
 commentRouter.get("/:id", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.getcomment);
 commentRouter.delete("/:id", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.deletecomment);
+commentRouter.patch("/:id", (0, verifyAcess_1.default)("user"), commentcontroller_1.commentcontroller.updatecomment);
 exports.default = commentRouter;

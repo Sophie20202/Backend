@@ -11,11 +11,11 @@ class blogcontroller{
         return successmessage(
           res,
           200,
-          ` ${blog.length} Users founded successfully!!`,
+          ` ${blog.length} blogs founded successfully!!`,
           blog
         );
       } else {
-        return errormessage(res, 404, "No users found");
+        return errormessage(res, 404, "No blogs found");
       }
     } catch (error) {
       return errormessage(res, 500, (error as Error).message);
@@ -27,9 +27,9 @@ class blogcontroller{
       const blogs = await Blog.findById(req.params.id);
 
       if (!blogs) {
-        return errormessage(res, 404, "User not found");
+        return errormessage(res, 404, "blog not found");
       } else {
-        return successmessage(res, 200, "User found successfully", blogs);
+        return successmessage(res, 200, "bolgs found successfully", blogs);
       }
     } catch (error) {
       return errormessage(res, 500, (error as Error).message);
