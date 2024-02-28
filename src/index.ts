@@ -1,11 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
-import router from "./router/index";
 
+import router from "./router/index";
+import mongoose from "mongoose";
 const app = express();
 dotenv.config();
+import swaggerUi from "swagger-ui-express";
+import swaggerOutPut from './documentation/swager'
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 
 // Middleware
 app.use(bodyParser.json());
