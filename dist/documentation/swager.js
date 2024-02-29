@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_autogen_1 = __importDefault(require("swagger-autogen"));
 const doc = {
     info: {
-        version: 'v1.0.0',
+        version: '2.0',
         title: 'Swagger Demo Project',
         description: 'Implementation of Swagger with TypeScript'
     },
     servers: [
         {
             url: 'http://localhost:3000',
-            description: ''
+            description: 'api documentation'
         },
     ],
     components: {
@@ -25,7 +25,7 @@ const doc = {
         }
     }
 };
-const outputFile = 'swagger_output.json';
-const endpointsFiles = ['./src/index.ts'];
-(0, swagger_autogen_1.default)({ openapi: '3.0.0' })(outputFile, endpointsFiles, doc);
+const outputFile = './swagger_output.json';
+const endpointsFiles = ['../index.ts'];
+(0, swagger_autogen_1.default)({ openapi: '3.1.0' })(outputFile, endpointsFiles, doc);
 exports.default = doc;

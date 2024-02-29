@@ -7,19 +7,16 @@ import mongoose from "mongoose";
 const app = express();
 dotenv.config();
 import swaggerUi from "swagger-ui-express";
-import swaggerOutPut from './documentation/swager'
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
+import swaggerOutPut from './documentation/swagger_output.json'
 
-// Middleware
 app.use(bodyParser.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 app.use("/greet/v1", router);
 
 
-// Environment variables
-const port: string | number = process.env.PORT || 3000;
+const port: string | number = process.env.PORT || 5000;
 const database: string = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
 
-// Server start
 app.listen(port,()=>{
     console.log(`Server is running on ${port}`);
 });
@@ -32,6 +29,7 @@ mongoose.connect(database)
     .catch((error) =>{
         console.log(error);
     });
+    
 
 export default app;
 

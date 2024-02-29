@@ -11,15 +11,12 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
 dotenv_1.default.config();
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
-const swager_1 = __importDefault(require("./documentation/swager"));
-app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swager_1.default));
-// Middleware
+const swagger_output_json_1 = __importDefault(require("./documentation/swagger_output.json"));
 app.use(body_parser_1.default.json());
+app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 app.use("/greet/v1", index_1.default);
-// Environment variables
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const database = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
-// Server start
 app.listen(port, () => {
     console.log(`Server is running on ${port}`);
 });

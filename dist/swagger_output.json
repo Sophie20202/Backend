@@ -1,0 +1,23 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "version": "2.0",
+        "title": "Swagger Demo Project",
+        "description": "Implementation of Swagger with TypeScript"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "api documentation"
+        }
+    ],
+    "paths": {},
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
