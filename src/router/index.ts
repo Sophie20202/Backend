@@ -6,10 +6,18 @@ import commentRouter from "./commentRouter"
 // import loginRouter from "./loginRouter"
 const router: Router = express.Router();
 
-router.use("/user", userRouter);
-router.use("/blog", blogRouter);
-router.use("/contact",contactRouter)
-router.use("/comment",commentRouter)
-// router.use("/login",loginRouter);
+router.use("/user", userRouter  /*
+#swagger.tags = ['USERS']
+*/)
+router.use("/blog", blogRouter  /*
+#swagger.tags = ['BLOGS']
+*/);
+router.use("/contact",contactRouter  /*
+#swagger.tags = ['CONTACTS']
+*/)
+router.use("/comment",commentRouter  /*
+#swagger.tags = ['COMMENTS']
+*/)
+
 export default router;
 

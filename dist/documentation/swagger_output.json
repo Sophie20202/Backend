@@ -7,13 +7,16 @@
     },
     "servers": [
         {
-            "url": "http://localhost:3000",
+            "url": "http://localhost:5000",
             "description": "api documentation"
         }
     ],
     "paths": {
         "/greet/v1/user/": {
             "get": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -22,6 +25,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -65,6 +71,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -75,6 +84,9 @@
         },
         "/greet/v1/user/{id}": {
             "get": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -93,6 +105,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -111,6 +126,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -131,6 +149,9 @@
         },
         "/greet/v1/user/login": {
             "post": {
+                "tags": [
+                    "USERS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -158,6 +179,9 @@
         },
         "/greet/v1/blog/": {
             "get": {
+                "tags": [
+                    "BLOGS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -166,6 +190,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "BLOGS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -193,6 +220,9 @@
         },
         "/greet/v1/blog/{id}": {
             "get": {
+                "tags": [
+                    "BLOGS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -211,6 +241,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "BLOGS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -229,6 +262,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "BLOGS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -249,6 +285,9 @@
         },
         "/greet/v1/contact/": {
             "get": {
+                "tags": [
+                    "CONTACTS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -257,6 +296,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "CONTACTS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -267,6 +309,9 @@
         },
         "/greet/v1/contact/{id}": {
             "get": {
+                "tags": [
+                    "CONTACTS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -285,6 +330,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "CONTACTS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -303,6 +351,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "CONTACTS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -323,6 +374,9 @@
         },
         "/greet/v1/comment/{blogId}": {
             "post": {
+                "tags": [
+                    "COMMENTS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -357,6 +411,9 @@
         },
         "/greet/v1/comment/": {
             "get": {
+                "tags": [
+                    "COMMENTS"
+                ],
                 "description": "",
                 "responses": {
                     "default": {
@@ -367,6 +424,9 @@
         },
         "/greet/v1/comment/{id}": {
             "delete": {
+                "tags": [
+                    "COMMENTS"
+                ],
                 "description": "",
                 "parameters": [
                     {
@@ -385,6 +445,9 @@
                 }
             },
             "patch": {
+                "tags": [
+                    "COMMENTS"
+                ],
                 "description": "",
                 "parameters": [
                     {

@@ -15,6 +15,7 @@ const swagger_output_json_1 = __importDefault(require("./documentation/swagger_o
 app.use(body_parser_1.default.json());
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 app.use("/greet/v1", index_1.default);
+// app.use("/comments", Comment)
 const port = process.env.PORT || 5000;
 const database = process.env.DATABASE || "mongodb://localhost:27017/mydatabase";
 app.listen(port, () => {

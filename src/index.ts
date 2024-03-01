@@ -8,10 +8,12 @@ const app = express();
 dotenv.config();
 import swaggerUi from "swagger-ui-express";
 import swaggerOutPut from './documentation/swagger_output.json'
+import { Comment } from "./models/comment";
 
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 app.use("/greet/v1", router);
+// app.use("/comments", Comment)
 
 
 const port: string | number = process.env.PORT || 5000;
