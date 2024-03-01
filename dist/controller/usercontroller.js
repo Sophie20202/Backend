@@ -114,7 +114,7 @@ class Usercontroller {
             if (!comparePassword) {
                 return (0, errormsg_1.default)(res, 401, `Invalid email or password`);
             }
-            const token = jsonwebtoken_1.default.sign({ user: user }, secretKey, { expiresIn: '1d' });
+            const token = jsonwebtoken_1.default.sign({ user: user }, secretKey, { expiresIn: '30d' });
             if (token) {
                 return (0, token_1.default)(res, 200, `User login successful`, token);
             }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709280819425" clover="3.2.0">
-  <project timestamp="1709280819425" name="All files">
-    <metrics statements="1105" coveredstatements="620" conditionals="536" coveredconditionals="305" methods="148" coveredmethods="74" elements="1789" coveredelements="999" complexity="0" loc="1105" ncloc="1105" packages="18" files="60" classes="60"/>
+<coverage generated="1709296609992" clover="3.2.0">
+  <project timestamp="1709296609992" name="All files">
+    <metrics statements="1105" coveredstatements="652" conditionals="536" coveredconditionals="311" methods="148" coveredmethods="78" elements="1789" coveredelements="1041" complexity="0" loc="1105" ncloc="1105" packages="18" files="60" classes="60"/>
     <package name="dist">
-      <metrics statements="23" coveredstatements="22" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="3"/>
+      <metrics statements="23" coveredstatements="21" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="2"/>
       <file name="index.js" path="/Users/sophie/Desktop/Backend/dist/index.js">
-        <metrics statements="23" coveredstatements="22" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="3"/>
+        <metrics statements="23" coveredstatements="21" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="2"/>
         <line num="2" count="1" type="cond" truecount="3" falsecount="0"/>
         <line num="3" count="7" type="cond" truecount="4" falsecount="0"/>
         <line num="5" count="1" type="stmt"/>
@@ -21,20 +21,20 @@
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
       </file>
     </package>
     <package name="dist.controller">
-      <metrics statements="186" coveredstatements="51" conditionals="78" coveredconditionals="30" methods="26" coveredmethods="7"/>
+      <metrics statements="186" coveredstatements="61" conditionals="78" coveredconditionals="31" methods="26" coveredmethods="9"/>
       <file name="blogcontroller.js" path="/Users/sophie/Desktop/Backend/dist/controller/blogcontroller.js">
-        <metrics statements="40" coveredstatements="14" conditionals="17" coveredconditionals="7" methods="6" coveredmethods="3"/>
+        <metrics statements="40" coveredstatements="24" conditionals="17" coveredconditionals="8" methods="6" coveredmethods="5"/>
         <line num="2" count="1" type="cond" truecount="3" falsecount="0"/>
         <line num="3" count="2" type="cond" truecount="3" falsecount="1"/>
         <line num="5" count="1" type="stmt"/>
@@ -53,21 +53,21 @@
         <line num="28" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
         <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="61" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
         <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
         <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -233,7 +233,7 @@
       </file>
     </package>
     <package name="dist.middleware">
-      <metrics statements="77" coveredstatements="51" conditionals="80" coveredconditionals="49" methods="15" coveredmethods="10"/>
+      <metrics statements="77" coveredstatements="57" conditionals="80" coveredconditionals="52" methods="15" coveredmethods="10"/>
       <file name="datachecker.js" path="/Users/sophie/Desktop/Backend/dist/middleware/datachecker.js">
         <metrics statements="22" coveredstatements="17" conditionals="17" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <line num="2" count="1" type="cond" truecount="3" falsecount="0"/>
@@ -276,7 +276,7 @@
         <line num="23" count="1" type="stmt"/>
       </file>
       <file name="verifyAcess.js" path="/Users/sophie/Desktop/Backend/dist/middleware/verifyAcess.js">
-        <metrics statements="42" coveredstatements="25" conditionals="54" coveredconditionals="32" methods="9" coveredmethods="6"/>
+        <metrics statements="42" coveredstatements="31" conditionals="54" coveredconditionals="35" methods="9" coveredmethods="6"/>
         <line num="2" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="3" count="6" type="cond" truecount="1" falsecount="1"/>
         <line num="4" count="6" type="stmt"/>
@@ -302,17 +302,17 @@
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="6" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="34" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="53" count="0" type="stmt"/>
         <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -426,10 +426,10 @@
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
       </file>
       <file name="userRouter.js" path="/Users/sophie/Desktop/Backend/dist/router/userRouter.js">
         <metrics statements="15" coveredstatements="15" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
@@ -451,9 +451,9 @@
       </file>
     </package>
     <package name="dist.src">
-      <metrics statements="23" coveredstatements="21" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="2"/>
+      <metrics statements="23" coveredstatements="22" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="3"/>
       <file name="index.js" path="/Users/sophie/Desktop/Backend/dist/src/index.js">
-        <metrics statements="23" coveredstatements="21" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="2"/>
+        <metrics statements="23" coveredstatements="22" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="3"/>
         <line num="2" count="1" type="cond" truecount="3" falsecount="0"/>
         <line num="3" count="7" type="cond" truecount="4" falsecount="0"/>
         <line num="5" count="1" type="stmt"/>
@@ -472,7 +472,7 @@
         <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
@@ -935,7 +935,7 @@
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
       <file name="token.js" path="/Users/sophie/Desktop/Backend/dist/utils/token.js">
@@ -959,23 +959,23 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.controller">
-      <metrics statements="173" coveredstatements="38" conditionals="47" coveredconditionals="2" methods="22" coveredmethods="3"/>
+      <metrics statements="173" coveredstatements="48" conditionals="47" coveredconditionals="3" methods="22" coveredmethods="5"/>
       <file name="blogcontroller.ts" path="/Users/sophie/Desktop/Backend/src/controller/blogcontroller.ts">
-        <metrics statements="37" coveredstatements="11" conditionals="10" coveredconditionals="1" methods="5" coveredmethods="2"/>
+        <metrics statements="37" coveredstatements="21" conditionals="10" coveredconditionals="2" methods="5" coveredmethods="4"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -991,21 +991,21 @@
         <line num="30" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="1" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="62" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
         <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
         <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -1161,7 +1161,7 @@
       </file>
     </package>
     <package name="src.middleware">
-      <metrics statements="50" coveredstatements="27" conditionals="21" coveredconditionals="7" methods="6" coveredmethods="4"/>
+      <metrics statements="50" coveredstatements="33" conditionals="21" coveredconditionals="8" methods="6" coveredmethods="4"/>
       <file name="datachecker.ts" path="/Users/sophie/Desktop/Backend/src/middleware/datachecker.ts">
         <metrics statements="18" coveredstatements="13" conditionals="10" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
@@ -1197,23 +1197,23 @@
         <line num="18" count="1" type="stmt"/>
       </file>
       <file name="verifyAcess.ts" path="/Users/sophie/Desktop/Backend/src/middleware/verifyAcess.ts">
-        <metrics statements="22" coveredstatements="8" conditionals="9" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="22" coveredstatements="14" conditionals="9" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="6" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="cond" truecount="2" falsecount="1"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
         <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="cond" truecount="0" falsecount="1"/>
@@ -1299,10 +1299,10 @@
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
       </file>
       <file name="userRouter.ts" path="/Users/sophie/Desktop/Backend/src/router/userRouter.ts">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -1331,7 +1331,7 @@
       <file name="successmsg.ts" path="/Users/sophie/Desktop/Backend/src/utils/successmsg.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
       </file>
       <file name="token.ts" path="/Users/sophie/Desktop/Backend/src/utils/token.ts">
