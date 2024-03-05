@@ -2,7 +2,12 @@ import request from 'supertest';
 import app from '../index';
 import mongoose from 'mongoose';
 require('dotenv').config();
+import { User } from '../models/user';
 
+let userId: string;
+let blogId:string;
+let email:string;
+let commentId:string
 beforeAll(async () => {
   await mongoose.connect(
     "mongodb+srv://sofidele12:Sophie1992@mukamugema.xgxanbg.mongodb.net/SALES"
@@ -39,8 +44,34 @@ describe("API Endpoints", () => {
     authtoken = response.body.token;
     expect(authtoken).toBeTruthy();
   });
+  it("GET should return a list of users", async () => {
+    const response = await request(app)
+      .get("/greet/v1/user")
+      .set("Authorization", authtoken);
+    expect(response.status).toBe(200);
+  });
+  
+  it("PUT should update user", async () => {
+    let user = {
+      firstname: "testuser1",
+      lastname: "testuser1",
 
-  it("POST /greet/v1/blog should create a new blog", async () => {
+    };
+    const response = await request(app)
+      .put(`/greet/v1/user/${userId}`)
+      .send(user)
+      .set("Authorization", authtoken);
+    expect(response.status).toBe(500);
+  });
+  it("DELETE should delete the specified user", async () => {
+    const response = await request(app)
+      .delete(`/greet/v1/user/${blogId}`)
+      .set("auth-token", authtoken);
+
+    expect(response.status).toBe(500);
+  });
+
+  it("POST blog should create a new blog", async () => {
     let blog = {
       title: "Rwandans",
       message: "Rwandans are beautifull",
@@ -72,8 +103,8 @@ describe("API Endpoints", () => {
     expect(response.status).toBe(200);
   });
 
-  it("PUT /greet/v1/blog/:id  should update blog", async () => {
-    let brand = {
+  it("PUT blog should update blog", async () => {
+    let blog = {
       title: "online shopping",
       message: "admin",
       image: "fashion",
@@ -81,7 +112,7 @@ describe("API Endpoints", () => {
     const response = await request(app)
       .put(`/greet/v1/blog/${blogId}`)
       .set("auth-token", authtoken)
-      .send(brand);
+      .send(blog);
 
     expect(response.status).toBe(200);
   });
@@ -93,6 +124,42 @@ describe("API Endpoints", () => {
 
     expect(response.status).toBe(200);
   });
+
+
+  it("GET should return a list of comments", async () => {
+    const response = await request(app)
+      .get("/greet/v1/comment")
+      .set("auth-token", authtoken);
+    expect(response.status).toBe(200);
+  });
+  it("DELETE should delete the specified comment", async () => {
+    const response = await request(app)
+      .delete(`/greet/v1/comment/${commentId}`)
+      .set("auth-token", authtoken);
+    expect(response.status).toBe(500);
+  });
+  it("PUT/comment should update comment", async () => {
+    let comment = {
+      message: "admin",  
+    };
+    const response = await request(app)
+      .put(`/greet/v1/blog/${commentId}`)
+      .set("auth-token", authtoken)
+      .send(comment);
+  });
+
+  it("POST comment should create a new comment", async () => {
+    let comment = {
+      message: "Rwandans are beautifull"
+    };
+    const response = await request(app)
+      .post(`/greet/v1/comment`).send(comment)
+      .set("Authorization", authtoken)
+    expect(response.status).toBe(200);
+
+  });
+
+
 
   // This route doesn't exist
   // it("DELETE should delete all blogs", async () => {

@@ -15,14 +15,12 @@ const swagger_output_json_1 = __importDefault(require("./documentation/swagger_o
 app.use(body_parser_1.default.json());
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 app.use("/greet/v1", index_1.default);
-// app.use("/comment", Comment)
 const port = process.env.PORT || 5000;
 const database = process.env.DATABASE || "mongodb+srv://sofidele12:Sophie1992@mukamugema.xgxanbg.mongodb.net/SALES";
-if (process.env.NODE_ENV !== "test") {
+if (process.env.NODE_ENV !== "test")
     app.listen(port, () => {
         console.log(`Server is running on ${port}`);
     });
-}
 // Database connection
 mongoose_1.default.connect(database)
     .then(() => {

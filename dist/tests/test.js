@@ -7,6 +7,10 @@ const supertest_1 = __importDefault(require("supertest"));
 const index_1 = __importDefault(require("../index"));
 const mongoose_1 = __importDefault(require("mongoose"));
 require('dotenv').config();
+let userId;
+let blogId;
+let email;
+let commentId;
 beforeAll(async () => {
     await mongoose_1.default.connect("mongodb+srv://sofidele12:Sophie1992@mukamugema.xgxanbg.mongodb.net/SALES");
 });
@@ -37,7 +41,30 @@ describe("API Endpoints", () => {
         authtoken = response.body.token;
         expect(authtoken).toBeTruthy();
     });
-    it("POST /greet/v1/blog should create a new blog", async () => {
+    it("GET should return a list of users", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .get("/greet/v1/user")
+            .set("Authorization", authtoken);
+        expect(response.status).toBe(200);
+    });
+    it("PUT should update user", async () => {
+        let user = {
+            firstname: "testuser1",
+            lastname: "testuser1",
+        };
+        const response = await (0, supertest_1.default)(index_1.default)
+            .put(`/greet/v1/user/${userId}`)
+            .send(user)
+            .set("Authorization", authtoken);
+        expect(response.status).toBe(500);
+    });
+    it("DELETE should delete the specified user", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .delete(`/greet/v1/user/${blogId}`)
+            .set("auth-token", authtoken);
+        expect(response.status).toBe(500);
+    });
+    it("POST blog should create a new blog", async () => {
         let blog = {
             title: "Rwandans",
             message: "Rwandans are beautifull",
@@ -62,8 +89,8 @@ describe("API Endpoints", () => {
             .set("auth-token", authtoken);
         expect(response.status).toBe(200);
     });
-    it("PUT /greet/v1/blog/:id  should update blog", async () => {
-        let brand = {
+    it("PUT blog should update blog", async () => {
+        let blog = {
             title: "online shopping",
             message: "admin",
             image: "fashion",
@@ -71,13 +98,43 @@ describe("API Endpoints", () => {
         const response = await (0, supertest_1.default)(index_1.default)
             .put(`/greet/v1/blog/${blogId}`)
             .set("auth-token", authtoken)
-            .send(brand);
+            .send(blog);
         expect(response.status).toBe(200);
     });
     it("DELETE should delete the specified blog", async () => {
         const response = await (0, supertest_1.default)(index_1.default)
             .delete(`/greet/v1/blog/${blogId}`)
             .set("auth-token", authtoken);
+        expect(response.status).toBe(200);
+    });
+    it("GET should return a list of comments", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .get("/greet/v1/comment")
+            .set("auth-token", authtoken);
+        expect(response.status).toBe(200);
+    });
+    it("DELETE should delete the specified comment", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .delete(`/greet/v1/comment/${commentId}`)
+            .set("auth-token", authtoken);
+        expect(response.status).toBe(500);
+    });
+    it("PUT/comment should update comment", async () => {
+        let comment = {
+            message: "admin",
+        };
+        const response = await (0, supertest_1.default)(index_1.default)
+            .put(`/greet/v1/blog/${commentId}`)
+            .set("auth-token", authtoken)
+            .send(comment);
+    });
+    it("POST comment should create a new comment", async () => {
+        let comment = {
+            message: "Rwandans are beautifull"
+        };
+        const response = await (0, supertest_1.default)(index_1.default)
+            .post(`/greet/v1/comment`).send(comment)
+            .set("Authorization", authtoken);
         expect(response.status).toBe(200);
     });
     // This route doesn't exist

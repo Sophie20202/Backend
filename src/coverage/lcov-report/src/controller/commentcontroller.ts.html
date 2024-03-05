@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.15% </span>
+                <span class="strong">31.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/38</span>
+                <span class='fraction'>12/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>1/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.15% </span>
+                <span class="strong">31.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/38</span>
+                <span class='fraction'>12/38</span>
             </div>
         
             
@@ -179,10 +179,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,15 +210,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -259,17 +259,17 @@ class commentcontroller{
 <span class="cstat-no" title="statement not covered" >            return errormessage(res, 500, (error as Error).message);</span>
         }
     }
-    public <span class="fstat-no" title="function not covered" >static </span>async getcomments(req: Request, res: Response): Promise&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >            try {</span>
-            const comment= <span class="cstat-no" title="statement not covered" >await Comment.find();</span>
-<span class="cstat-no" title="statement not covered" >             if (comment){</span>
-<span class="cstat-no" title="statement not covered" >             return successmessage(</span>
+    public static async getcomments(req: Request, res: Response): Promise&lt;void&gt; {
+            try {
+            const comment= await Comment.find();
+             if (comment){
+             return successmessage(
              res,
              200,
               ` ${comment.length} Comments founded successfully!!`,
              comment
            );
-           } else {
+           } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >            return errormessage(res, 404, "No Comment found");</span>
             }
          } catch (error) {
@@ -290,16 +290,16 @@ class commentcontroller{
 <span class="cstat-no" title="statement not covered" >      return errormessage(res, 500, (error as Error).message);</span>
     }
   }
-  public <span class="fstat-no" title="function not covered" >static </span>async deletecomment(req: Request, res: Response): Promise&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const comments = <span class="cstat-no" title="statement not covered" >await Comment.findByIdAndDelete(req.params.id);</span>
+  public static async deletecomment(req: Request, res: Response): Promise&lt;void&gt; {
+    try {
+      const comments = await Comment.findByIdAndDelete(req.params.id);
 <span class="cstat-no" title="statement not covered" >      if (Comment) {</span>
 <span class="cstat-no" title="statement not covered" >        return successmessage(res, 200, "Comment deleted successfully",comments);</span>
       } else {
 <span class="cstat-no" title="statement not covered" >        return errormessage(res, 404, "Comment not found");</span>
       }
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      return errormessage(res, 500, (error as Error).message);</span>
+      return errormessage(res, 500, (error as Error).message);
     }
   }
 &nbsp;
@@ -313,7 +313,7 @@ export {commentcontroller}
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-01T12:53:23.785Z
+                at 2024-03-03T09:00:18.070Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
