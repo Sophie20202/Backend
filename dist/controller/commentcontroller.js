@@ -72,9 +72,9 @@ class commentcontroller {
     }
     static async deletecomment(req, res) {
         try {
-            const comments = await comment_1.Comment.findByIdAndDelete(req.params.id);
+            const comment = await comment_1.Comment.findByIdAndDelete(req.params.id);
             if (comment_1.Comment) {
-                return (0, successmsg_1.default)(res, 200, "Comment deleted successfully", comments);
+                return (0, successmsg_1.default)(res, 200, "Comment deleted successfully", comment);
             }
             else {
                 return (0, errormsg_1.default)(res, 404, "Comment not found");

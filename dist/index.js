@@ -30,3 +30,6 @@ mongoose_1.default.connect(database)
     console.log(error);
 });
 exports.default = app;
+function cors() {
+    throw new Error("Function not implemented.");
+}

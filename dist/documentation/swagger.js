@@ -12,7 +12,7 @@ const doc = {
     },
     servers: [
         {
-            url: 'http:localhost:5000',
+            url: 'https://backend-jdw6.onrender.com',
             description: 'api documentation'
         },
     ],

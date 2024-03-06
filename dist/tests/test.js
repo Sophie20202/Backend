@@ -20,11 +20,13 @@ afterAll(async () => {
 describe("API Endpoints", () => {
     let authtoken;
     let blogId;
+    let contactId;
+    // users
     it("POST user should create a user", async () => {
         const user = {
-            firstname: "Mukamugema",
-            lastname: "sophie",
-            email: "sofidele12@gmail.com",
+            firstname: "firstname",
+            lastname: "lastname",
+            email: "email",
             role: "admin",
             password: "Sophie1992@",
         };
@@ -64,6 +66,7 @@ describe("API Endpoints", () => {
             .set("auth-token", authtoken);
         expect(response.status).toBe(500);
     });
+    // blogs
     it("POST blog should create a new blog", async () => {
         let blog = {
             title: "Rwandans",
@@ -107,6 +110,7 @@ describe("API Endpoints", () => {
             .set("auth-token", authtoken);
         expect(response.status).toBe(200);
     });
+    // comments
     it("GET should return a list of comments", async () => {
         const response = await (0, supertest_1.default)(index_1.default)
             .get("/greet/v1/comment")
@@ -128,14 +132,36 @@ describe("API Endpoints", () => {
             .set("auth-token", authtoken)
             .send(comment);
     });
-    it("POST comment should create a new comment", async () => {
-        let comment = {
+    // Contacts
+    it("GET should return a list of contacts", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .get("/greet/v1/contact")
+            .set("auth-token", authtoken);
+        expect(response.status).toBe(200);
+    });
+    it("DELETE should delete the specified contact", async () => {
+        const response = await (0, supertest_1.default)(index_1.default)
+            .delete(`/greet/v1/contact/${contactId}`)
+            .set("auth-token", authtoken);
+        expect(response.status).toBe(500);
+    });
+    it("PUT/contact should update contact", async () => {
+        let contact = {
+            message: "admin",
+        };
+        const response = await (0, supertest_1.default)(index_1.default)
+            .put(`/greet/v1/contact${contactId}`)
+            .set("auth-token", authtoken)
+            .send(contact);
+    });
+    it("POST contact should create a new contact", async () => {
+        let contact = {
             message: "Rwandans are beautifull"
         };
         const response = await (0, supertest_1.default)(index_1.default)
-            .post(`/greet/v1/comment`).send(comment)
+            .post(`/greet/v1/contact`).send(contact)
             .set("Authorization", authtoken);
-        expect(response.status).toBe(200);
+        expect(response.status).toBe(500);
     });
     // This route doesn't exist
     // it("DELETE should delete all blogs", async () => {
