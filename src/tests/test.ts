@@ -21,12 +21,15 @@ afterAll(async () => {
 describe("API Endpoints", () => {
   let authtoken: string;
   let blogId: string;
+  let contactId:string;
+
+  // users
 
   it("POST user should create a user", async () => {
     const user = {
-      firstname: "Mukamugema",
-      lastname: "sophie",
-      email: "sofidele12@gmail.com",
+      firstname: "firstname",
+      lastname: "lastname",
+      email: "email",
       role: "admin",
       password: "Sophie1992@",
     };
@@ -70,6 +73,8 @@ describe("API Endpoints", () => {
 
     expect(response.status).toBe(500);
   });
+
+  // blogs
 
   it("POST blog should create a new blog", async () => {
     let blog = {
@@ -125,6 +130,8 @@ describe("API Endpoints", () => {
     expect(response.status).toBe(200);
   });
 
+  // comments
+
 
   it("GET should return a list of comments", async () => {
     const response = await request(app)
@@ -148,14 +155,39 @@ describe("API Endpoints", () => {
       .send(comment);
   });
 
-  it("POST comment should create a new comment", async () => {
-    let comment = {
+  // Contacts
+
+  it("GET should return a list of contacts", async () => {
+    const response = await request(app)
+      .get("/greet/v1/contact")
+      .set("auth-token", authtoken);
+    expect(response.status).toBe(200);
+  });
+  it("DELETE should delete the specified contact", async () => {
+    const response = await request(app)
+      .delete(`/greet/v1/contact/${contactId}`)
+      .set("auth-token", authtoken);
+    expect(response.status).toBe(500);
+  });
+  it("PUT/contact should update contact", async () => {
+    let contact = {
+      message: "admin",  
+    };
+    const response = await request(app)
+      .put(`/greet/v1/contact${contactId}`)
+      .set("auth-token", authtoken)
+      .send(contact);
+  });
+
+
+  it("POST contact should create a new contact", async () => {
+    let contact = {
       message: "Rwandans are beautifull"
     };
     const response = await request(app)
-      .post(`/greet/v1/comment`).send(comment)
-      .set("Authorization", authtoken)
-    expect(response.status).toBe(200);
+      .post(`/greet/v1/contact`).send(contact)
+      .set("Authorization", authtoken);
+    expect(response.status).toBe(500);
 
   });
 

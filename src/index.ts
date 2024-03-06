@@ -13,7 +13,7 @@ import { Comment } from "./models/comment";
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 app.use("/greet/v1", router);
-app.use(cors());
+
 
 
 

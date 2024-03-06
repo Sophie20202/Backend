@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709456418109" clover="3.2.0">
-  <project timestamp="1709456418109" name="All files">
-    <metrics statements="318" coveredstatements="193" conditionals="73" coveredconditionals="17" methods="34" coveredmethods="18" elements="425" coveredelements="228" complexity="0" loc="318" ncloc="318" packages="6" files="20" classes="20"/>
+<coverage generated="1709720410445" clover="3.2.0">
+  <project timestamp="1709720410445" name="All files">
+    <metrics statements="319" coveredstatements="204" conditionals="73" coveredconditionals="18" methods="35" coveredmethods="21" elements="427" coveredelements="243" complexity="0" loc="319" ncloc="319" packages="6" files="20" classes="20"/>
     <package name="src">
-      <metrics statements="21" coveredstatements="18" conditionals="5" coveredconditionals="2" methods="3" coveredmethods="1"/>
+      <metrics statements="22" coveredstatements="18" conditionals="5" coveredconditionals="2" methods="4" coveredmethods="1"/>
       <file name="index.ts" path="/Users/sophie/Desktop/Backend/src/index.ts">
-        <metrics statements="21" coveredstatements="18" conditionals="5" coveredconditionals="2" methods="3" coveredmethods="1"/>
+        <metrics statements="22" coveredstatements="18" conditionals="5" coveredconditionals="2" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -18,19 +18,20 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="22" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="23" count="0" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.controller">
-      <metrics statements="173" coveredstatements="68" conditionals="47" coveredconditionals="7" methods="22" coveredmethods="10"/>
+      <metrics statements="173" coveredstatements="79" conditionals="47" coveredconditionals="8" methods="22" coveredmethods="13"/>
       <file name="blogcontroller.ts" path="/Users/sophie/Desktop/Backend/src/controller/blogcontroller.ts">
         <metrics statements="37" coveredstatements="24" conditionals="10" coveredconditionals="4" methods="5" coveredmethods="4"/>
         <line num="2" count="1" type="stmt"/>
@@ -113,14 +114,14 @@
         <line num="81" count="1" type="stmt"/>
       </file>
       <file name="contactcontroller.ts" path="/Users/sophie/Desktop/Backend/src/controller/contactcontroller.ts">
-        <metrics statements="35" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="35" coveredstatements="15" conditionals="10" coveredconditionals="1" methods="5" coveredmethods="3"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
@@ -129,25 +130,25 @@
         <line num="31" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
         <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="48" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="63" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
         <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="76" count="0" type="stmt"/>
         <line num="78" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
       </file>
       <file name="usercontroller.ts" path="/Users/sophie/Desktop/Backend/src/controller/usercontroller.ts">
@@ -382,13 +383,13 @@
       <file name="errormsg.ts" path="/Users/sophie/Desktop/Backend/src/utils/errormsg.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
       <file name="successmsg.ts" path="/Users/sophie/Desktop/Backend/src/utils/successmsg.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="7" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
       </file>
       <file name="token.ts" path="/Users/sophie/Desktop/Backend/src/utils/token.ts">
