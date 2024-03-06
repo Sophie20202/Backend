@@ -10,7 +10,9 @@ dotenv.config();
 import swaggerUi from "swagger-ui-express";
 import swaggerOutPut from './documentation/swagger_output.json'
 import { Comment } from "./models/comment";
+import cors from "cors";
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 app.use("/greet/v1", router);
@@ -39,7 +41,5 @@ mongoose.connect(database)
 export default app;
 
 
-function cors(): any {
-    throw new Error("Function not implemented.");
-}
+
 

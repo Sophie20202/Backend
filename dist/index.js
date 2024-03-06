@@ -12,6 +12,8 @@ const app = (0, express_1.default)();
 dotenv_1.default.config();
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_output_json_1 = __importDefault(require("./documentation/swagger_output.json"));
+const cors_1 = __importDefault(require("cors"));
+app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 app.use("/greet/v1", index_1.default);
@@ -30,6 +32,3 @@ mongoose_1.default.connect(database)
     console.log(error);
 });
 exports.default = app;
-function cors() {
-    throw new Error("Function not implemented.");
-}
