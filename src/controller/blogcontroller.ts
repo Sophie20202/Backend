@@ -6,13 +6,13 @@ import bcrypt from "bcrypt";
 class blogcontroller{
   public static async getblogs(req: Request, res: Response): Promise<void> {
     try {
-      const blog = await Blog.find();
-      if (blog){
+      const blogs = await Blog.find();
+      if (blogs){
         return successmessage(
           res,
           200,
-          ` ${blog.length} blogs founded successfully!!`,
-          blog
+          ` ${blogs.length} blogs founded successfully!!`,
+          blogs
         );
       } else {
         return errormessage(res, 404, "No blogs found");
