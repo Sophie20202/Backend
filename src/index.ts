@@ -16,6 +16,10 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
 app.use("/greet/v1", router);
+app.get("/uploads/:image", (req, res) => {
+    // #swagger.ignore = true
+    res.sendFile(req.params.image, { root: "uploads" });
+  });
 
 
 
