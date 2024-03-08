@@ -4,11 +4,11 @@ import VerifyAcess from "../middleware/verifyAcess"
 
 const commentRouter:Router=express.Router()
 
-commentRouter.post("/:blogId",VerifyAcess("user"),commentcontroller.createcomment)
+commentRouter.post("/:blogId",commentcontroller.createcomment)
 commentRouter.get("/",VerifyAcess("admin"),commentcontroller.getcomments)// router.get("/",commentcontroller.getcomment)
 commentRouter.get("/:id",VerifyAcess("admin"),commentcontroller.getcomment)
 commentRouter.delete("/:id",VerifyAcess("admin"),commentcontroller.deletecomment)
-commentRouter.patch("/:id",VerifyAcess("user"),commentcontroller.updatecomment)
+commentRouter.patch("/:id",VerifyAcess,commentcontroller.updatecomment)
 
 
 export default commentRouter
