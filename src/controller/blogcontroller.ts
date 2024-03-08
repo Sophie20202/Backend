@@ -4,15 +4,15 @@ import successmessage from "../utils/successmsg";
 import errormessage from "../utils/errormsg";
 import bcrypt from "bcrypt";
 class blogcontroller{
-  public static async getblogs(req: Request, res: Response): Promise<void> {
+  public static async getblog(req: Request, res: Response): Promise<void> {
     try {
-      const blogs = await Blog.find();
-      if (blogs){
+      const blog = await Blog.find();
+      if (blog){
         return successmessage(
           res,
           200,
-          ` ${blogs.length} blogs founded successfully!!`,
-          blogs
+          ` ${blog.length} blogs founded successfully!!`,
+          blog
         );
       } else {
         return errormessage(res, 404, "No blogs found");
@@ -22,7 +22,7 @@ class blogcontroller{
     }
   }
 
-  public static async getblog(req: Request, res: Response): Promise<void> {
+  public static async getblogs(req: Request, res: Response): Promise<void> {
     try {
       const blog = await Blog.findById(req.params.id);
 

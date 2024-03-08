@@ -5,7 +5,7 @@ import apload from "../middleware/multer"
 
 const blogRouter: Router = express.Router();
 
-blogRouter.get("/", blogcontroller.getblog);
+blogRouter.get("/", blogcontroller.getblogs);
 blogRouter.get("/:id", blogcontroller.getblog);
 blogRouter.post("/",apload.single("image"),VerifyAccess("admin"),blogcontroller.createblog);
 blogRouter.put("/:id", blogcontroller.updateblog);
