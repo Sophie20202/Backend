@@ -7,11 +7,11 @@ const Blog_1 = require("../models/Blog");
 const successmsg_1 = __importDefault(require("../utils/successmsg"));
 const errormsg_1 = __importDefault(require("../utils/errormsg"));
 class blogcontroller {
-    static async getblog(req, res) {
+    static async getblogs(req, res) {
         try {
-            const blog = await Blog_1.Blog.find();
-            if (blog) {
-                return (0, successmsg_1.default)(res, 200, ` ${blog.length} blogs founded successfully!!`, blog);
+            const blogs = await Blog_1.Blog.find();
+            if (blogs) {
+                return (0, successmsg_1.default)(res, 200, ` ${blogs.length} blogs founded successfully!!`, blogs);
             }
             else {
                 return (0, errormsg_1.default)(res, 404, "No blogs found");
@@ -21,14 +21,14 @@ class blogcontroller {
             return (0, errormsg_1.default)(res, 500, error.message);
         }
     }
-    static async getblogs(req, res) {
+    static async getblog(req, res) {
         try {
-            const blogs = await Blog_1.Blog.findById(req.params.id);
-            if (!blogs) {
+            const blog = await Blog_1.Blog.findById(req.params.id);
+            if (!blog) {
                 return (0, errormsg_1.default)(res, 404, "blog not found");
             }
             else {
-                return (0, successmsg_1.default)(res, 200, "bolgs found successfully", blogs);
+                return (0, successmsg_1.default)(res, 200, "bolg is founded successfully", blog);
             }
         }
         catch (error) {

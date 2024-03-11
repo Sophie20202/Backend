@@ -17,6 +17,10 @@ app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 app.use("/greet/v1", index_1.default);
+app.get("/uploads/:image", (req, res) => {
+    // #swagger.ignore = true
+    res.sendFile(req.params.image, { root: "uploads" });
+});
 const port = process.env.PORT || 5000;
 const database = process.env.DATABASE || "mongodb+srv://sofidele12:Sophie1992@mukamugema.xgxanbg.mongodb.net/SALES";
 if (process.env.NODE_ENV !== "test")

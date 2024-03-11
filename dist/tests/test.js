@@ -58,7 +58,7 @@ describe("API Endpoints", () => {
             .put(`/greet/v1/user/${userId}`)
             .send(user)
             .set("Authorization", authtoken);
-        expect(response.status).toBe(500);
+        expect(response.status).toBe(200);
     });
     it("DELETE should delete the specified user", async () => {
         const response = await (0, supertest_1.default)(index_1.default)
