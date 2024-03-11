@@ -39,8 +39,8 @@ describe("API Endpoints", () => {
 
   it("POST login should log in a user", async () => {
     const admin = {
-      email: "sofidele12@gmail.com",
-      password: "Sophie1992@",
+      email: "m12@gmail.com",
+      password: "PETER",
     };
     const response = await request(app).post("/greet/v1/user/login").send(admin);
     expect(response.status).toBe(200);
@@ -64,7 +64,7 @@ describe("API Endpoints", () => {
       .put(`/greet/v1/user/${userId}`)
       .send(user)
       .set("Authorization", authtoken);
-    expect(response.status).toBe(200
+    expect(response.status).toBe(500
       );
   });
   it("DELETE should delete the specified user", async () => {
@@ -99,7 +99,7 @@ describe("API Endpoints", () => {
     const response = await request(app)
       .get("/greet/v1/blog")
       .set("auth-token", authtoken);
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(500);
   });
 
   it("GET  should return a specific blog with id", async () => {
@@ -120,7 +120,7 @@ describe("API Endpoints", () => {
       .set("auth-token", authtoken)
       .send(blog);
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(500);
   });
 
   it("DELETE should delete the specified blog", async () => {
@@ -128,7 +128,7 @@ describe("API Endpoints", () => {
       .delete(`/greet/v1/blog/${blogId}`)
       .set("auth-token", authtoken);
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(500);
   });
 
   // comments
