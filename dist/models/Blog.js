@@ -15,7 +15,7 @@ const BlogSchema = new mongoose_1.default.Schema({
         required: true,
     },
     picture: {
-        type: Array,
+        type: String,
         required: true,
     },
 });

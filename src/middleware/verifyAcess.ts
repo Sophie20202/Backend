@@ -23,7 +23,7 @@ const VerifyAccess = (passrole: string) =>{
         if (!token || Array.isArray(token)) {
             return errormessage(res, 401, `No valid token provided`);
         }
-        const secretKey = process.env.SECRET_KEY;
+        const secretKey = "Sophie";
         if (!secretKey) {
             return errormessage(res, 500, `Secret key is not defined`);
         }

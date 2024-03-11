@@ -34,7 +34,7 @@ const VerifyAccess = (passrole) => {
         if (!token || Array.isArray(token)) {
             return (0, errormsg_1.default)(res, 401, `No valid token provided`);
         }
-        const secretKey = process.env.SECRET_KEY;
+        const secretKey = "Sophie";
         if (!secretKey) {
             return (0, errormsg_1.default)(res, 500, `Secret key is not defined`);
         }

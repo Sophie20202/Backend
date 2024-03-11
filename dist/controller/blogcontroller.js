@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Blog_1 = require("../models/Blog");
 const successmsg_1 = __importDefault(require("../utils/successmsg"));
 const errormsg_1 = __importDefault(require("../utils/errormsg"));
+const cloudinary_1 = require("cloudinary");
 class blogcontroller {
     static async getblogs(req, res) {
         try {
@@ -37,8 +38,19 @@ class blogcontroller {
     }
     static async createblog(req, res) {
         try {
+            cloudinary_1.v2.config({
+                cloud_name: 'dj9doj3zb',
+                api_key: '828394813176886',
+                api_secret: 'xaFk3eLbhALWnMlwSZPUlB2tH5M'
+            });
             const { title, message } = req.body;
-            const picture = req.file?.path;
+            let result = "";
+            if (req.file) {
+                const uploadedImage = await cloudinary_1.v2.uploader.upload(req.file.path);
+                result = uploadedImage.secure_url;
+            }
+            const picture = result;
+            console.log(result);
             const blogs = new Blog_1.Blog({ title, message, picture });
             await blogs.save();
             if (blogs) {
