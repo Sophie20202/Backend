@@ -9,6 +9,7 @@ const likesRouter: Router = express.Router();
 
 likesRouter.get("/:blogid", likecontroller.getLikeStatus);
 likesRouter.post("/:blogid",likecontroller.createlikes);
+likesRouter.delete("/:blogid",likecontroller.createdislikes);
 
 export default likesRouter;
 

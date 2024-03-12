@@ -7,9 +7,6 @@ const successmsg_1 = __importDefault(require("../utils/successmsg"));
 const errormsg_1 = __importDefault(require("../utils/errormsg"));
 const like_1 = require("../models/like");
 class likecontroller {
-    static Bloglikes(arg0, Bloglikes) {
-        throw new Error("Method not implemented.");
-    }
     static async createlikes(req, res) {
         try {
             const blogId = req.params.blogid;
@@ -35,6 +32,24 @@ class likecontroller {
         res.status(200).json({
             Total_like: TotalLike,
         });
+    }
+    static async createdislikes(req, res) {
+        try {
+            const blogId = req.params.blogid;
+            const data = {
+                blogId
+            };
+            const dislikes = await like_1.like.deleteOne(data);
+            if (!dislikes) {
+                return (0, errormsg_1.default)(res, 401, `this bolg id  not exist ${blogId}`);
+            }
+            else {
+                return (0, successmsg_1.default)(res, 201, 'like successfuly posted', dislikes);
+            }
+        }
+        catch (error) {
+            return (0, errormsg_1.default)(res, 500, `${error}`);
+        }
     }
 }
 exports.default = likecontroller;

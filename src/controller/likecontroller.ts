@@ -5,9 +5,7 @@ import errormessage from "../utils/errormsg";
 import { like } from "../models/like";
 
 class likecontroller{
-static Bloglikes(arg0: string, Bloglikes: any) {
-    throw new Error("Method not implemented.");
-}
+
 
 public static async createlikes(req:Request,res:Response):Promise<void>{
     try {
@@ -34,5 +32,23 @@ public static  async getLikeStatus(req:Request, res:Response){
        
     })
 }
+public static async createdislikes(req:Request,res:Response):Promise<void>{
+    try {
+      const blogId=req.params.blogid
+      const data={
+        blogId
+      }
+      const dislikes= await like.deleteOne(data)
+   
+      if(!dislikes){
+          return errormessage(res,401,`this bolg id  not exist ${blogId}`)
+      }else{
+          return successmessage(res,201,'like successfuly posted',dislikes)
+      }
+    } catch (error) {
+       return errormessage(res,500,`${error}`)
+    }
+}
+
 }
       export default likecontroller;
