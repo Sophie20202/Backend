@@ -8,8 +8,8 @@ const commentcontroller_1 = require("../controller/commentcontroller");
 const verifyAcess_1 = __importDefault(require("../middleware/verifyAcess"));
 const commentRouter = express_1.default.Router();
 commentRouter.post("/:blogId", commentcontroller_1.commentcontroller.createcomment);
-commentRouter.get("/", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.getcomments); // router.get("/",commentcontroller.getcomment)
-commentRouter.get("/:id", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.getcomment);
+commentRouter.get("/:id", commentcontroller_1.commentcontroller.getcomments); // router.get("/",commentcontroller.getcomment)
+// commentRouter.get("/:id",VerifyAcess("admin"),commentcontroller.getcomment)
 commentRouter.delete("/:id", (0, verifyAcess_1.default)("admin"), commentcontroller_1.commentcontroller.deletecomment);
 commentRouter.patch("/:id", verifyAcess_1.default, commentcontroller_1.commentcontroller.updatecomment);
 exports.default = commentRouter;

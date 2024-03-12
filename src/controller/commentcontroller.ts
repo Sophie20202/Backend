@@ -37,12 +37,12 @@ class commentcontroller{
     }
     public static async getcomments(req: Request, res: Response): Promise<void> {
             try {
-            const comment= await Comment.find();
+            const comment= await Comment.findOne({blogId:req.params.id});
              if (comment){
              return successmessage(
              res,
              200,
-              ` ${comment.length} Comments founded successfully!!`,
+              `  Comments founded successfully!!`,
              comment
            );
            } else {
