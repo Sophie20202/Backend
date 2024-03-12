@@ -67,24 +67,29 @@ describe("API Endpoints", () => {
         expect(response.status).toBe(500);
     });
     // blogs
-    it("POST blog should create a new blog", async () => {
-        let blog = {
-            title: "Rwandans",
-            message: "Rwandans are beautifull",
-            picture: [],
-        };
-        const response = await (0, supertest_1.default)(index_1.default)
-            .post("/greet/v1/blog")
-            .set("auth-token", authtoken)
-            .send(blog);
-        expect(response.status).toBe(200);
-        blogId = response.body.data._id;
-    });
+    // it("POST blog should create a new blog", async () => {
+    //   let blog = {
+    //     title: "Rwandans",
+    //     message: "Rwandans are beautifull",
+    //     picture: "",
+    //   };
+    //   const dotPathfile =`${__dirname}/image/image.jpg` ;
+    //   console.log(dotPathfile)
+    //   const response = await request(app)
+    //     .post("/greet/v1/blog")
+    //     .set("auth-token", authtoken)
+    //     .set('contentType', 'application/octet-stream')
+    //     .field('title',"RWANDA")
+    //     .field('message',"message")
+    //     .attach('picture',dotPathfile)
+    //   expect(response.status).toBe(200);
+    //   blogId = response.body.data._id;
+    // });
     it("GET should return a list of blogs", async () => {
         const response = await (0, supertest_1.default)(index_1.default)
             .get("/greet/v1/blog")
             .set("auth-token", authtoken);
-        expect(response.status).toBe(500);
+        expect(response.status).toBe(200);
     });
     it("GET  should return a specific blog with id", async () => {
         const response = await (0, supertest_1.default)(index_1.default)

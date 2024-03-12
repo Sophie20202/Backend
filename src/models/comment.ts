@@ -8,6 +8,10 @@ user:{
     type: String,
     required: true,
   },
+  blogId:{
+    type:String,
+    required:true,
+  }
 
 });
 

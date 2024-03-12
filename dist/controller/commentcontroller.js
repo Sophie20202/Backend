@@ -13,7 +13,10 @@ class commentcontroller {
         try {
             const blogId = req.params.blogId;
             req.body.user = req.user?.user.id;
-            const comment = await comment_1.Comment.create(req.body);
+            const data = {
+                message: req.body.message, blogId
+            };
+            const comment = await comment_1.Comment.create(data);
             const blog = await Blog_1.Blog.findByIdAndUpdate(blogId, { $push: { comments: comment } }, { new: true });
             if (!blog) {
                 return (0, errormsg_1.default)(res, 401, `no blog found on this id ${blogId}`);

@@ -44,7 +44,7 @@ class blogcontroller{
   cloud_name: 'dj9doj3zb', 
   api_key: '828394813176886', 
   api_secret:'xaFk3eLbhALWnMlwSZPUlB2tH5M' 
-});
+  });
 
 const { title,message}=req.body
 let result="";
@@ -96,5 +96,6 @@ console.log(result)
       return errormessage(res, 500, (error as Error).message);
     }
   }
+
 }
 export default blogcontroller;

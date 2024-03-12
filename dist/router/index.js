@@ -8,6 +8,7 @@ const userRouter_1 = __importDefault(require("./userRouter"));
 const blogRouter_1 = __importDefault(require("./blogRouter"));
 const contactRouter_1 = __importDefault(require("./contactRouter"));
 const commentRouter_1 = __importDefault(require("./commentRouter"));
+const likes_1 = __importDefault(require("./likes"));
 // import loginRouter from "./loginRouter"
 const router = express_1.default.Router();
 router.use("/user", userRouter_1.default /*
@@ -22,4 +23,5 @@ router.use("/contact", contactRouter_1.default /*
 router.use("/comment", commentRouter_1.default /*
 #swagger.tags = ['COMMENTS']
 */);
+router.use("/likes", likes_1.default);
 exports.default = router;

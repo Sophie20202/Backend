@@ -8,7 +8,10 @@ class commentcontroller{
           try {
             const blogId=req.params.blogId
             req.body.user=req.user?.user.id
-            const comment = await Comment.create(req.body)
+            const data={
+              message:req.body.message,blogId
+            }
+            const comment = await Comment.create(data)
             const blog = await Blog.findByIdAndUpdate(blogId,{$push:{comments:comment}},{new:true})
             if(!blog){
                 return errormessage(res,401,`no blog found on this id ${blogId}`)
