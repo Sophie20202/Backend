@@ -45,7 +45,7 @@ class commentcontroller {
     }
     static async getcomments(req, res) {
         try {
-            const comment = await comment_1.Comment.findOne({ blogId: req.params.id });
+            const comment = await comment_1.Comment.find({ blogId: req.params.id });
             if (comment) {
                 return (0, successmsg_1.default)(res, 200, `  Comments founded successfully!!`, comment);
             }

@@ -7,7 +7,7 @@ import VerifyAccess from "../middleware/verifyAcess";
 const likesRouter: Router = express.Router();
 
 
-// likesRouter.get("/:blogid", likecontroller.Bloglikes);
+likesRouter.get("/:blogid", likecontroller.getLikeStatus);
 likesRouter.post("/:blogid",likecontroller.createlikes);
 
 export default likesRouter;

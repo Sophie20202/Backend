@@ -27,5 +27,12 @@ public static async createlikes(req:Request,res:Response):Promise<void>{
        return errormessage(res,500,`${error}`)
     }
 }
+public static  async getLikeStatus(req:Request, res:Response){
+    const TotalLike=await like.countDocuments({blogId:req.params.blogid})
+    res.status(200).json({
+        Total_like:TotalLike,
+       
+    })
+}
 }
       export default likecontroller;

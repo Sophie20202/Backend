@@ -30,5 +30,11 @@ class likecontroller {
             return (0, errormsg_1.default)(res, 500, `${error}`);
         }
     }
+    static async getLikeStatus(req, res) {
+        const TotalLike = await like_1.like.countDocuments({ blogId: req.params.blogid });
+        res.status(200).json({
+            Total_like: TotalLike,
+        });
+    }
 }
 exports.default = likecontroller;
