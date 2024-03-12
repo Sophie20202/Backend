@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.81% </span>
+                <span class="strong">34.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/44</span>
+                <span class='fraction'>15/44</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.81% </span>
+                <span class="strong">34.09% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/44</span>
+                <span class='fraction'>15/44</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -203,34 +203,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -302,27 +302,27 @@ class blogcontroller{
     }
   }
 &nbsp;
-  public static async createblog(req: Request, res: Response): Promise&lt;void&gt; {
-    try {
+  public <span class="fstat-no" title="function not covered" >static </span>async createblog(req: Request, res: Response): Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" >    try {</span>
             
- cloudinary.config({ 
+<span class="cstat-no" title="statement not covered" > cloudinary.config({ </span>
   cloud_name: 'dj9doj3zb', 
   api_key: '828394813176886', 
   api_secret:'xaFk3eLbhALWnMlwSZPUlB2tH5M' 
 });
 &nbsp;
-const { title,message}=req.body
-let result="";
+const { title,message}=<span class="cstat-no" title="statement not covered" >req.body</span>
+let result=<span class="cstat-no" title="statement not covered" >"";</span>
 &nbsp;
-<span class="missing-if-branch" title="if path not taken" >I</span>if(req.file){
+<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if(req.file){</span>
   
 const uploadedImage=<span class="cstat-no" title="statement not covered" >await cloudinary.uploader.upload(req.file.path)</span>
 <span class="cstat-no" title="statement not covered" >           result=uploadedImage.secure_url</span>
 }
-const picture=result
-console.log(result)
-      const blogs = new Blog({title,message,picture});
-      await blogs.save();
+const picture=<span class="cstat-no" title="statement not covered" >result</span>
+<span class="cstat-no" title="statement not covered" >console.log(result)</span>
+      const blogs = <span class="cstat-no" title="statement not covered" >new Blog({title,message,picture});</span>
+<span class="cstat-no" title="statement not covered" >      await blogs.save();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      if (blogs) {</span>
 <span class="cstat-no" title="statement not covered" >        return successmessage(res, 200, "Blog created successfully!!", blogs);</span>
@@ -330,7 +330,7 @@ console.log(result)
 <span class="cstat-no" title="statement not covered" >        return errormessage(res, 401, "Blog creation failed");</span>
       }
     } catch (error) {
-      return errormessage(res, 500, (error as Error).message);
+<span class="cstat-no" title="statement not covered" >      return errormessage(res, 500, (error as Error).message);</span>
     }
   }
 &nbsp;
@@ -370,7 +370,7 @@ export default blogcontroller;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-11T19:41:56.923Z
+                at 2024-03-12T08:46:16.136Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
