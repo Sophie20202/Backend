@@ -7,7 +7,7 @@ const blogRouter: Router = express.Router();
 blogRouter.get("/", blogcontroller.getblogs);
 blogRouter.get("/:id", blogcontroller.getblog);
 blogRouter.post("/",apload.single("image"),blogcontroller.createblog);
-blogRouter.patch("/:id",apload.single("image"), blogcontroller.updateblog);
+blogRouter.put("/:id",apload.single("image"), blogcontroller.updateblog);
 blogRouter.delete("/:id", blogcontroller.deleteblog);
 
 

@@ -33,7 +33,7 @@ describe("API Endpoints", () => {
       role: "admin",
       password: "Sophie1992@",
     };
-    const response = await request(app).post("/greet/v1/user").send(user);
+    const response = await request(app).post("/api/users").send(user);
     expect(response.status).toBe(200);
   });
 
@@ -42,34 +42,35 @@ describe("API Endpoints", () => {
       email: "m12@gmail.com",
       password: "PETER",
     };
-    const response = await request(app).post("/greet/v1/user/login").send(admin);
+    const response = await request(app).post("/api/users/login").send(admin);
     expect(response.status).toBe(200);
     authtoken = response.body.token;
     expect(authtoken).toBeTruthy();
   });
   it("GET should return a list of users", async () => {
     const response = await request(app)
-      .get("/greet/v1/user")
+      .get("/api/users/profile")
       .set("Authorization", authtoken);
     expect(response.status).toBe(200);
   });
   
-  it("PUT should update user", async () => {
+  it("PUT should not update user if user is not found", async () => {
     let user = {
-      firstname: "testuser1",
-      lastname: "testuser1",
+   
+      email:"manzi12@gmail.com",
+      password:"PETER"
+      
 
     };
     const response = await request(app)
-      .put(`/greet/v1/user/${userId}`)
+      .put(`/api/users/profile/${userId}`)
       .send(user)
       .set("Authorization", authtoken);
-    expect(response.status).toBe(500
-      );
+    expect(response.status).toBe(404);
   });
   it("DELETE should delete the specified user", async () => {
     const response = await request(app)
-      .delete(`/greet/v1/user/${blogId}`)
+      .delete(`/api/users/profile/${userId}`)
       .set("auth-token", authtoken);
 
     expect(response.status).toBe(500);
@@ -77,38 +78,40 @@ describe("API Endpoints", () => {
 
   // blogs
 
-  // it("POST blog should create a new blog", async () => {
-  //   let blog = {
-  //     title: "Rwandans",
-  //     message: "Rwandans are beautifull",
-  //     picture: "",
-  //   };
+  it("POST blog should create a new blog", async () => {
+    let blog = {
+      title: "Rwandans",
+      message: "Rwandans are beautifull",
+      image: "",
+    };
 
-  //   const dotPathfile =`${__dirname}/image/image.jpg` ;
-  //   console.log(dotPathfile)
-  //   const response = await request(app)
+    // const dotPathfile =`${__dirname}/image/image.jpg` ;
+    // console.log(dotPathfile)
+    const response = await request(app)
 
-  //     .post("/greet/v1/blog")
-  //     .set("auth-token", authtoken)
-  //     .set('contentType', 'application/octet-stream')
-  //     .field('title',"RWANDA")
-  //     .field('message',"message")
-  //     .attach('picture',dotPathfile)
+      .post("/api/blogs")
+      .send(blog)
+      // .set("auth-token", authtoken)
+      .set('contentType', 'application/octet-stream')
+      // .field('title',"RWANDA")
+      // .field('message',"message")
+      // .attach('image',dotPathfile)
+     
    
-  //   expect(response.status).toBe(200);
-  //   blogId = response.body.data._id;
-  // });
+    expect(response.status).toBe(200);
+    blogId = response.body.data._id;
+  });
 
   it("GET should return a list of blogs", async () => {
     const response = await request(app)
-      .get("/greet/v1/blog")
+      .get("/api/blogs")
       .set("auth-token", authtoken);
     expect(response.status).toBe(200);
   });
 
   it("GET  should return a specific blog with id", async () => {
     const response = await request(app)
-      .get("/greet/v1/blog")
+      .get("/api/blogs")
       .set("auth-token", authtoken);
     expect(response.status).toBe(200);
   });
@@ -120,19 +123,20 @@ describe("API Endpoints", () => {
       image: "fashion",
     };
     const response = await request(app)
-      .put(`/greet/v1/blog/${blogId}`)
+      .put(`/api/blogs/${blogId}`)
       .set("auth-token", authtoken)
       .send(blog);
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(200);
   });
 
   it("DELETE should delete the specified blog", async () => {
     const response = await request(app)
-      .delete(`/greet/v1/blog/${blogId}`)
+      .delete(`/api/blogs/${blogId}/comments`)
       .set("auth-token", authtoken);
-
-    expect(response.status).toBe(500);
+      console.log(authtoken)
+     console.log(blogId)
+    expect(response.status).toBe(200);
   });
 
   // comments
@@ -140,59 +144,61 @@ describe("API Endpoints", () => {
 
   it("GET should return a list of comments", async () => {
     const response = await request(app)
-      .get("/greet/v1/comment")
+      .get(`/api/blogs/${blogId}/comments`)
       .set("auth-token", authtoken);
     expect(response.status).toBe(200);
   });
   it("DELETE should delete the specified comment", async () => {
     const response = await request(app)
-      .delete(`/greet/v1/comment/${commentId}`)
+      .delete(`/api/blogs/${blogId}/comments`)
       .set("auth-token", authtoken);
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(200);
   });
-  it("PUT/comment should update comment", async () => {
-    let comment = {
-      message: "admin",  
-    };
-    const response = await request(app)
-      .put(`/greet/v1/blog/${commentId}`)
-      .set("auth-token", authtoken)
-      .send(comment);
-  });
+  // it("PUT/comment should update comment", async () => {
+  //   let comment = {
+  //     message: "admin",  
+  //   };
+  //   const response = await request(app)
+  //     .put(`/greet/v1/blog/${commentId}`)
+  //     .set("auth-token", authtoken)
+  //     .send(comment);
+  // });
 
   // Contacts
 
   it("GET should return a list of contacts", async () => {
     const response = await request(app)
-      .get("/greet/v1/contact")
+      .get("/api/contacts")
       .set("auth-token", authtoken);
     expect(response.status).toBe(200);
   });
   it("DELETE should delete the specified contact", async () => {
     const response = await request(app)
-      .delete(`/greet/v1/contact/${contactId}`)
+      .delete(`/api/contacts/messages/${contactId}`)
       .set("auth-token", authtoken);
     expect(response.status).toBe(500);
   });
-  it("PUT/contact should update contact", async () => {
-    let contact = {
-      message: "admin",  
-    };
-    const response = await request(app)
-      .put(`/greet/v1/contact${contactId}`)
-      .set("auth-token", authtoken)
-      .send(contact);
-  });
+  // it("PUT/contact should update contact", async () => {
+  //   let contact = {
+  //     message: "admin",  
+  //   };
+  //   const response = await request(app)
+  //     .put(`/api/contact${contactId}`)
+  //     .set("auth-token", authtoken)
+  //     .send(contact);
+  // });
 
 
   it("POST contact should create a new contact", async () => {
     let contact = {
+      name:"brian",
+      email:"brian@gmail.com",
       message: "Rwandans are beautifull"
     };
     const response = await request(app)
-      .post(`/greet/v1/contact`).send(contact)
+      .post(`/api/contacts/messages`).send(contact)
       .set("Authorization", authtoken);
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(200);
 
   });
 
