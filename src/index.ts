@@ -8,14 +8,14 @@ import mongoose from "mongoose";
 const app = express();
 dotenv.config();
 import swaggerUi from "swagger-ui-express";
-import swaggerOutPut from './documentation/swagger_output.json'
+import swaggerOutPut from './documentation/swagger.json'
 import { Comment } from "./models/comment";
 import cors from "cors";
 
 app.use(cors())
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutPut));
-app.use("/greet/v1", router);
+app.use("/api", router);
 app.get("/uploads/:image", (req, res) => {
     // #swagger.ignore = true
     res.sendFile(req.params.image, { root: "uploads" });

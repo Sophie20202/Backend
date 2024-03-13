@@ -6,7 +6,7 @@
   "scripts": {
     "dev:watch": "nodemon",
     "dev": "tsc && node dist/index.js",
-    "start": "node dist/index.js",
+    "start": "nodemon dist/index.js",
     "build": "tsc",
     "test": "cross-env NODE_ENV=test jest --testTimeout=5000",
     "type": "module",

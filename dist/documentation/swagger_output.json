@@ -177,7 +177,7 @@
                 }
             }
         },
-        "/greet/v1/blog/": {
+        "api/blogs": {
             "get": {
                 "tags": [
                     "BLOGS"
@@ -218,7 +218,7 @@
                 }
             }
         },
-        "/greet/v1/blog/{id}": {
+        "api/blogs/{id}": {
             "get": {
                 "tags": [
                     "BLOGS"

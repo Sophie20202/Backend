@@ -54,9 +54,9 @@ if(req.file){
 const uploadedImage=await cloudinary.uploader.upload(req.file.path)
            result=uploadedImage.secure_url
 }
-const picture=result
+const image=result
 console.log(result)
-      const blogs = new Blog({title,message,picture});
+      const blogs = new Blog({title,message,image});
       await blogs.save();
 
       if (blogs) {

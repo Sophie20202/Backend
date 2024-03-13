@@ -49,9 +49,9 @@ class blogcontroller {
                 const uploadedImage = await cloudinary_1.v2.uploader.upload(req.file.path);
                 result = uploadedImage.secure_url;
             }
-            const picture = result;
+            const image = result;
             console.log(result);
-            const blogs = new Blog_1.Blog({ title, message, picture });
+            const blogs = new Blog_1.Blog({ title, message, image });
             await blogs.save();
             if (blogs) {
                 return (0, successmsg_1.default)(res, 200, "Blog created successfully!!", blogs);
