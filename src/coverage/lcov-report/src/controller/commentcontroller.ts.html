@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/39</span>
+                <span class='fraction'>21/39</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">30% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/10</span>
+                <span class='fraction'>3/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/39</span>
+                <span class='fraction'>21/39</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -154,18 +154,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -237,19 +237,19 @@ import { Blog } from "../models/Blog"
 import errormessage from "../utils/errormsg"
 import successmessage from "../utils/successmsg"
 class commentcontroller{
-    public <span class="fstat-no" title="function not covered" >static </span>async createcomment(req:Request,res:Response):Promise&lt;void&gt;{
-<span class="cstat-no" title="statement not covered" >          try {</span>
-            const blogId=<span class="cstat-no" title="statement not covered" >req.params.blogId</span>
-<span class="cstat-no" title="statement not covered" >            req.body.user=req.user?.user.id</span>
-            const data=<span class="cstat-no" title="statement not covered" >{</span>
+    public static async createcomment(req:Request,res:Response):Promise&lt;void&gt;{
+          try {
+            const blogId=req.params.blogId
+            req.body.user=req.user?.user.id
+            const data={
               message:req.body.message,blogId
             }
-            const comment = <span class="cstat-no" title="statement not covered" >await Comment.create(data)</span>
-            const blog = <span class="cstat-no" title="statement not covered" >await Blog.findByIdAndUpdate(blogId,{$push:{comments:comment}},{new:true})</span>
-<span class="cstat-no" title="statement not covered" >            if(!blog){</span>
+            const comment = await Comment.create(data)
+            const blog = await Blog.findByIdAndUpdate(blogId,{$push:{comments:comment}},{new:true})
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(!blog){
 <span class="cstat-no" title="statement not covered" >                return errormessage(res,401,`no blog found on this id ${blogId}`)</span>
             }else{
-<span class="cstat-no" title="statement not covered" >                return successmessage(res,201,'comment successfuly posted',comment)</span>
+                return successmessage(res,201,'comment successfuly posted',comment)
             }
           } catch (error) {
 <span class="cstat-no" title="statement not covered" >             return errormessage(res,500,`${error}`)</span>
@@ -270,7 +270,7 @@ class commentcontroller{
     }
     public static async getcomments(req: Request, res: Response): Promise&lt;void&gt; {
             try {
-            const comment= await Comment.find({blogId:req.params.id});
+            const comment= await Comment.find({blogId:req.params.blogId});
              if (comment){
              return successmessage(
              res,
@@ -322,7 +322,7 @@ export {commentcontroller}
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-13T21:00:03.266Z
+                at 2024-03-14T10:20:15.965Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

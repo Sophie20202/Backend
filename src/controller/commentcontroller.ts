@@ -37,7 +37,7 @@ class commentcontroller{
     }
     public static async getcomments(req: Request, res: Response): Promise<void> {
             try {
-            const comment= await Comment.find({blogId:req.params.id});
+            const comment= await Comment.find({blogId:req.params.blogId});
              if (comment){
              return successmessage(
              res,

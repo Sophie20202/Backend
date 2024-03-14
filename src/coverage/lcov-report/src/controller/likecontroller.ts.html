@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -126,42 +126,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -178,43 +178,43 @@ import { like } from "../models/like";
 class likecontroller{
 &nbsp;
 &nbsp;
-public <span class="fstat-no" title="function not covered" >static </span>async createlikes(req:Request,res:Response):Promise&lt;void&gt;{
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const blogId=<span class="cstat-no" title="statement not covered" >req.params.blogid</span>
+public static async createlikes(req:Request,res:Response):Promise&lt;void&gt;{
+    try {
+      const blogId=req.params.blogid
     //   req.body.user=req.user?.user.id
-      const data=<span class="cstat-no" title="statement not covered" >{</span>
+      const data={
         blogId
       }
-      const likes= <span class="cstat-no" title="statement not covered" >await like.create(data)</span>
+      const likes= await like.create(data)
     //   const like = await like.findByIdAndUpdate(blogId,{$push:{comments:like}},{new:true})
-<span class="cstat-no" title="statement not covered" >      if(!like){</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(!like){
 <span class="cstat-no" title="statement not covered" >          return errormessage(res,401,`this bolg id  not exist ${blogId}`)</span>
       }else{
-<span class="cstat-no" title="statement not covered" >          return successmessage(res,201,'like successfuly posted',likes)</span>
+          return successmessage(res,201,'like successfuly posted',likes)
       }
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >       return errormessage(res,500,`${error}`)</span>
     }
 }
-public <span class="fstat-no" title="function not covered" >static </span> async getLikeStatus(req:Request, res:Response){
-    const TotalLike=<span class="cstat-no" title="statement not covered" >await like.countDocuments({blogId:req.params.blogid})</span>
-<span class="cstat-no" title="statement not covered" >    res.status(200).json({</span>
+public static  async getLikeStatus(req:Request, res:Response){
+    const TotalLike=await like.countDocuments({blogId:req.params.blogid})
+    res.status(200).json({
         Total_like:TotalLike,
        
     })
 }
-public <span class="fstat-no" title="function not covered" >static </span>async createdislikes(req:Request,res:Response):Promise&lt;void&gt;{
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const blogId=<span class="cstat-no" title="statement not covered" >req.params.blogid</span>
-      const data=<span class="cstat-no" title="statement not covered" >{</span>
+public static async createdislikes(req:Request,res:Response):Promise&lt;void&gt;{
+    try {
+      const blogId=req.params.blogid
+      const data={
         blogId
       }
-      const dislikes= <span class="cstat-no" title="statement not covered" >await like.deleteOne(data)</span>
+      const dislikes= await like.deleteOne(data)
    
-<span class="cstat-no" title="statement not covered" >      if(!dislikes){</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(!dislikes){
 <span class="cstat-no" title="statement not covered" >          return errormessage(res,401,`this bolg id  not exist ${blogId}`)</span>
       }else{
-<span class="cstat-no" title="statement not covered" >          return successmessage(res,201,'like successfuly posted',dislikes)</span>
+          return successmessage(res,201,'like successfuly posted',dislikes)
       }
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >       return errormessage(res,500,`${error}`)</span>
@@ -229,7 +229,7 @@ public <span class="fstat-no" title="function not covered" >static </span>async 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-13T21:00:03.266Z
+                at 2024-03-14T10:20:15.965Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

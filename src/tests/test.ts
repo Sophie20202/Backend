@@ -36,6 +36,15 @@ describe("API Endpoints", () => {
     const response = await request(app).post("/api/users").send(user);
     expect(response.status).toBe(200);
   });
+  it("POST user should not create a user", async () => {
+    const user = {
+      firstname: "firstname",
+      role: "admin",
+      password: "Sophie1992@",
+    };
+    const response = await request(app).post("/api/users").send(user);
+    expect(response.status).toBe(500);
+  });
 
   it("POST login should log in a user", async () => {
     const admin = {
@@ -46,6 +55,15 @@ describe("API Endpoints", () => {
     expect(response.status).toBe(200);
     authtoken = response.body.token;
     expect(authtoken).toBeTruthy();
+  });
+  it("POST loginfail should log in a user", async () => {
+    const admin = {
+      email: "",
+      password: "PETER",
+    };
+    const response = await request(app).post("/api/users/login").send(admin);
+    expect(response.status).toBe(401);
+   
   });
   it("GET should return a list of users", async () => {
     const response = await request(app)
@@ -140,7 +158,27 @@ describe("API Endpoints", () => {
   });
 
   // comments
-
+  it("GET should return a list of likes", async () => {
+    const response = await request(app)
+      .get(`/api/blogs/${blogId}/likes`)
+    expect(response.status).toBe(200);
+  });
+  it("POST should return a list of likes", async () => {
+    const response = await request(app)
+    .post(`/api/blogs/${blogId}/likes`)
+    expect(response.status).toBe(201);
+  });
+  it("Delete should return a list of unlikes", async () => {
+    const response = await request(app)
+    .delete(`/api/blogs/${blogId}/likes`)
+    expect(response.status).toBe(201);
+  });
+  it("POST should post comments", async () => {
+    const response = await request(app)
+      .post(`/api/blogs/${blogId}/comments`)
+      .send({"message":"Rwanda is a good country"})
+    expect(response.status).toBe(201);
+  });
 
   it("GET should return a list of comments", async () => {
     const response = await request(app)
@@ -199,8 +237,23 @@ describe("API Endpoints", () => {
       .post(`/api/contacts/messages`).send(contact)
       .set("Authorization", authtoken);
     expect(response.status).toBe(200);
+  
 
   });
+  it("POST contact should create a new contact", async () => {
+    let contact = {
+      name:"brian",
+     
+      message: "Rwandans are beautifull"
+    };
+    const response = await request(app)
+      .post(`/api/contacts/messages`).send(contact)
+      .set("Authorization", authtoken);
+    expect(response.status).toBe(500);
+
+  });
+
+
 
 
 
